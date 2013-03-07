@@ -21,7 +21,10 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        video = [[VideoFrameExtractor alloc] initWithVideo:@"rtsp://media.smart-streaming.com/mytest/mp4:sample.mp4" usesTcp:NO];
+        //http://www.wowza.com/_h264/BigBuckBunny_115k.mov
+        //rtsp://media1.law.harvard.edu/Media/policy_a/2012/02/02_unger.mov
+        //rtsp://streaming.parliament.act.gov.au/medium
+        video = [[VideoFrameExtractor alloc] initWithVideo:@"http://www.wowza.com/_h264/BigBuckBunny_115k.mov" usesTcp:YES];
         video.outputWidth = 426;
         video.outputHeight = 320;
 

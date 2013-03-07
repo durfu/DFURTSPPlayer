@@ -8,7 +8,6 @@
 
 #import "DFUAppDelegate.h"
 #import "DFUViewController.h"
-#include "avformat.h"
 
 @implementation DFUAppDelegate
 
@@ -21,8 +20,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    av_register_all();
-    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {

@@ -349,22 +349,24 @@ initError:
     NSMutableData *packetData = [audioPacketQueue objectAtIndex:0];
     _packet = [packetData mutableBytes];
     
-    if (_packet->dts != AV_NOPTS_VALUE) {
-        _packet->dts += av_rescale_q(0, AV_TIME_BASE_Q, _audioStream->time_base);
+    if (_packet) {
+        if (_packet->dts != AV_NOPTS_VALUE) {
+            _packet->dts += av_rescale_q(0, AV_TIME_BASE_Q, _audioStream->time_base);
+        }
+        
+        if (_packet->pts != AV_NOPTS_VALUE) {
+            _packet->pts += av_rescale_q(0, AV_TIME_BASE_Q, _audioStream->time_base);
+        }
+        
+        [audioPacketQueueLock lock];
+        audioPacketQueueSize -= _packet->size;
+        if ([audioPacketQueue count] > 0) {
+            [audioPacketQueue removeObjectAtIndex:0];
+        }
+        [audioPacketQueueLock unlock];
+        
+        _currentPacket = *(_packet);
     }
-    
-    if (_packet->pts != AV_NOPTS_VALUE) {
-        _packet->pts += av_rescale_q(0, AV_TIME_BASE_Q, _audioStream->time_base);
-    }
-    
-    [audioPacketQueueLock lock];
-    audioPacketQueueSize -= _packet->size;
-    if ([audioPacketQueue count] > 0) {
-        [audioPacketQueue removeObjectAtIndex:0];
-    }
-    [audioPacketQueueLock unlock];
-    
-    _currentPacket = *(_packet);
     
     return &_currentPacket;   
 }
