@@ -1121,7 +1121,7 @@ typedef struct AVFrame {
      * - encoding: Set by user
      * - decoding: set by AVCodecContext.get_buffer()
      */
-    uint8_t *data[AV_NUM_DATA_POINTERS];
+    const uint8_t *data[AV_NUM_DATA_POINTERS];
 
     /**
      * Size, in bytes, of the data for each picture/channel plane.

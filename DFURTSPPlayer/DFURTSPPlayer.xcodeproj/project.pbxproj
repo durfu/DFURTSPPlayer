@@ -41,7 +41,7 @@
 		0649ABD016E92CBE001323D2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABCF16E92CBE001323D2 /* CoreVideo.framework */; };
 		0649ABDB16E93103001323D2 /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0649ABD616E93103001323D2 /* AudioController.m */; };
 		0649ABDC16E93103001323D2 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0649ABD816E93103001323D2 /* Utilities.m */; };
-		0649ABDD16E93103001323D2 /* VideoFrameExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0649ABDA16E93103001323D2 /* VideoFrameExtractor.m */; };
+		0649ABDD16E93103001323D2 /* RTSPPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0649ABDA16E93103001323D2 /* RTSPPlayer.m */; };
 		0649ABDF16E93112001323D2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABDE16E93112001323D2 /* AudioToolbox.framework */; };
 		0649ABE116E93227001323D2 /* sophie.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0649ABE016E93227001323D2 /* sophie.mov */; };
 /* End PBXBuildFile section */
@@ -173,8 +173,8 @@
 		0649ABD616E93103001323D2 /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioController.m; sourceTree = "<group>"; };
 		0649ABD716E93103001323D2 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		0649ABD816E93103001323D2 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
-		0649ABD916E93103001323D2 /* VideoFrameExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoFrameExtractor.h; sourceTree = "<group>"; };
-		0649ABDA16E93103001323D2 /* VideoFrameExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoFrameExtractor.m; sourceTree = "<group>"; };
+		0649ABD916E93103001323D2 /* RTSPPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSPPlayer.h; sourceTree = "<group>"; };
+		0649ABDA16E93103001323D2 /* RTSPPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSPPlayer.m; sourceTree = "<group>"; };
 		0649ABDE16E93112001323D2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		0649ABE016E93227001323D2 /* sophie.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sophie.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -499,8 +499,8 @@
 				0649ABD616E93103001323D2 /* AudioController.m */,
 				0649ABD716E93103001323D2 /* Utilities.h */,
 				0649ABD816E93103001323D2 /* Utilities.m */,
-				0649ABD916E93103001323D2 /* VideoFrameExtractor.h */,
-				0649ABDA16E93103001323D2 /* VideoFrameExtractor.m */,
+				0649ABD916E93103001323D2 /* RTSPPlayer.h */,
+				0649ABDA16E93103001323D2 /* RTSPPlayer.m */,
 			);
 			path = FFMpegDecoder;
 			sourceTree = "<group>";
@@ -623,7 +623,7 @@
 				0649AB2D16E9200D001323D2 /* DFUViewController.m in Sources */,
 				0649ABDB16E93103001323D2 /* AudioController.m in Sources */,
 				0649ABDC16E93103001323D2 /* Utilities.m in Sources */,
-				0649ABDD16E93103001323D2 /* VideoFrameExtractor.m in Sources */,
+				0649ABDD16E93103001323D2 /* RTSPPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -832,6 +832,7 @@
 				0649AB4D16E9200D001323D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0649AB4E16E9200D001323D2 /* Build configuration list for PBXNativeTarget "DFURTSPPlayerTests" */ = {
 			isa = XCConfigurationList;
@@ -840,6 +841,7 @@
 				0649AB5016E9200D001323D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

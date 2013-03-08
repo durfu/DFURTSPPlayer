@@ -7,16 +7,17 @@
 //
 
 #import "DFUViewController.h"
-#import "VideoFrameExtractor.h"
+#import "RTSPPlayer.h"
 #import "Utilities.h"
 
 @interface DFUViewController ()
-
+@property (nonatomic, retain) NSTimer *nextFrameTimer;
 @end
 
 @implementation DFUViewController
 
 @synthesize imageView, label, playButton, video;
+@synthesize nextFrameTimer = _nextFrameTimer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,7 +25,7 @@
         //http://www.wowza.com/_h264/BigBuckBunny_115k.mov
         //rtsp://media1.law.harvard.edu/Media/policy_a/2012/02/02_unger.mov
         //rtsp://streaming.parliament.act.gov.au/medium
-        video = [[VideoFrameExtractor alloc] initWithVideo:@"http://www.wowza.com/_h264/BigBuckBunny_115k.mov" usesTcp:YES];
+        video = [[RTSPPlayer alloc] initWithVideo:@"http://www.wowza.com/_h264/BigBuckBunny_115k.mov" usesTcp:NO];
         video.outputWidth = 426;
         video.outputHeight = 320;
 
@@ -56,7 +57,6 @@
 {
     [super viewDidLoad];
 
-//    [imageView setTransform:CGAffineTransformMakeRotation(M_PI/2)];
     [imageView setContentMode:UIViewContentModeScaleAspectFit];
 }
 
@@ -73,20 +73,23 @@
 	// seek to 0.0 seconds
 	[video seekTime:0.0];
     
-	[NSTimer scheduledTimerWithTimeInterval:1.0/30
-									 target:self
-								   selector:@selector(displayNextFrame:)
-								   userInfo:nil
-									repeats:YES];
+    [_nextFrameTimer invalidate];
+	self.nextFrameTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/30
+                                                           target:self
+                                                         selector:@selector(displayNextFrame:)
+                                                         userInfo:nil
+                                                          repeats:YES];
 }
 
-- (IBAction)showTime:(id)sender {
+- (IBAction)showTime:(id)sender
+{
     NSLog(@"current time: %f s", video.currentTime);
 }
 
 #define LERP(A,B,C) ((A)*(1.0-C)+(B)*C)
 
--(void)displayNextFrame:(NSTimer *)timer {
+-(void)displayNextFrame:(NSTimer *)timer
+{
 	NSTimeInterval startTime = [NSDate timeIntervalSinceReferenceDate];
 	if (![video stepFrame]) {
 		[timer invalidate];

@@ -1,27 +1,19 @@
-//
-//  Video.m
-//  iFrameExtractor
-//
-//  Created by lajos on 1/10/10.
-//  Copyright 2010 www.codza.com. All rights reserved.
-//
-
-#import "VideoFrameExtractor.h"
+#import "RTSPPlayer.h"
 #import "Utilities.h"
 #import "AudioController.h"
 
-@interface VideoFrameExtractor ()
+@interface RTSPPlayer ()
 @property (nonatomic, retain) AudioController *audioController;
 @end
 
-@interface VideoFrameExtractor (private)
+@interface RTSPPlayer (private)
 -(void)convertFrameToRGB;
 -(UIImage *)imageFromAVPicture:(AVPicture)pict width:(int)width height:(int)height;
 -(void)savePicture:(AVPicture)pFrame width:(int)width height:(int)height index:(int)iFrame;
 -(void)setupScaler;
 @end
 
-@implementation VideoFrameExtractor
+@implementation RTSPPlayer
 
 @synthesize audioController = _audioController;
 @synthesize audioPacketQueue,audioPacketQueueSize;

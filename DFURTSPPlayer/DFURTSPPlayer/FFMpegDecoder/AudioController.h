@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
-#import "VideoFrameExtractor.h"
+#import "RTSPPlayer.h"
 
 #define kNumAQBufs 3
 #define kAudioBufferSeconds 3
@@ -16,15 +16,17 @@ typedef enum _AUDIO_STATE {
 
 @interface AudioController : NSObject
 {
-  NSString *playingFilePath_;
-  AudioStreamBasicDescription audioStreamBasicDesc_;
-  AudioQueueRef audioQueue_;
-  AudioQueueBufferRef audioQueueBuffer_[kNumAQBufs];
-  BOOL started_, finished_;
-  NSTimeInterval durationTime_, startedTime_;
-  NSInteger state_;
-  NSTimer *seekTimer_;
-  NSLock *decodeLock_;
+    NSString *playingFilePath_;
+    AudioStreamBasicDescription audioStreamBasicDesc_;
+    AudioQueueRef audioQueue_;
+    AudioQueueBufferRef audioQueueBuffer_[kNumAQBufs];
+    BOOL started_, finished_;
+    NSTimeInterval durationTime_, startedTime_;
+    NSInteger state_;
+    NSTimer *seekTimer_;
+    NSLock *decodeLock_;
+    RTSPPlayer *_streamer;
+    AVCodecContext *_audioCodecContext;
 }
 
 - (void)_startAudio;
@@ -34,7 +36,7 @@ typedef enum _AUDIO_STATE {
 - (void)audioQueueOutputCallback:(AudioQueueRef)inAQ inBuffer:(AudioQueueBufferRef)inBuffer;
 - (void)audioQueueIsRunningCallback;
 - (OSStatus)enqueueBuffer:(AudioQueueBufferRef)buffer;
-- (id)initWithStreamer:(VideoFrameExtractor*)streamer;
+- (id)initWithStreamer:(RTSPPlayer*)streamer;
 
 - (OSStatus)startQueue;
 
