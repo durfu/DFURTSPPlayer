@@ -196,8 +196,11 @@ void audioQueueIsRunningCallback(void *inClientData, AudioQueueRef inAQ,
     
     AudioQueueDispose(audioQueue_, YES);
     
-    [decodeLock_ unlock];
-    [decodeLock_ release];
+    if (decodeLock_) {
+        [decodeLock_ unlock];
+        [decodeLock_ release];
+        decodeLock_ = nil;
+    }
 }
 
 
