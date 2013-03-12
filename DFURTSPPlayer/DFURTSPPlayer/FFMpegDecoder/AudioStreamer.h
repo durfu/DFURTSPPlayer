@@ -14,7 +14,7 @@ typedef enum _AUDIO_STATE {
     AUDIO_STATE_SEEKING         = 4
 } AUDIO_STATE;
 
-@interface AudioController : NSObject
+@interface AudioStreamer : NSObject
 {
     NSString *playingFilePath_;
     AudioStreamBasicDescription audioStreamBasicDesc_;

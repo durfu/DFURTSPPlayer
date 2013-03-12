@@ -39,7 +39,7 @@
 		0649ABCC16E92CB1001323D2 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABCB16E92CB1001323D2 /* CoreMedia.framework */; };
 		0649ABCE16E92CB8001323D2 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABCD16E92CB8001323D2 /* CoreImage.framework */; };
 		0649ABD016E92CBE001323D2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABCF16E92CBE001323D2 /* CoreVideo.framework */; };
-		0649ABDB16E93103001323D2 /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0649ABD616E93103001323D2 /* AudioController.m */; };
+		0649ABDB16E93103001323D2 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0649ABD616E93103001323D2 /* AudioStreamer.m */; };
 		0649ABDC16E93103001323D2 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0649ABD816E93103001323D2 /* Utilities.m */; };
 		0649ABDD16E93103001323D2 /* RTSPPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0649ABDA16E93103001323D2 /* RTSPPlayer.m */; };
 		0649ABDF16E93112001323D2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABDE16E93112001323D2 /* AudioToolbox.framework */; };
@@ -169,8 +169,8 @@
 		0649ABCB16E92CB1001323D2 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		0649ABCD16E92CB8001323D2 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		0649ABCF16E92CBE001323D2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		0649ABD516E93103001323D2 /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioController.h; sourceTree = "<group>"; };
-		0649ABD616E93103001323D2 /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioController.m; sourceTree = "<group>"; };
+		0649ABD516E93103001323D2 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
+		0649ABD616E93103001323D2 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
 		0649ABD716E93103001323D2 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		0649ABD816E93103001323D2 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		0649ABD916E93103001323D2 /* RTSPPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSPPlayer.h; sourceTree = "<group>"; };
@@ -495,8 +495,8 @@
 		0649ABD116E92D17001323D2 /* FFMpegDecoder */ = {
 			isa = PBXGroup;
 			children = (
-				0649ABD516E93103001323D2 /* AudioController.h */,
-				0649ABD616E93103001323D2 /* AudioController.m */,
+				0649ABD516E93103001323D2 /* AudioStreamer.h */,
+				0649ABD616E93103001323D2 /* AudioStreamer.m */,
 				0649ABD716E93103001323D2 /* Utilities.h */,
 				0649ABD816E93103001323D2 /* Utilities.m */,
 				0649ABD916E93103001323D2 /* RTSPPlayer.h */,
@@ -621,7 +621,7 @@
 				0649AB2016E9200D001323D2 /* main.m in Sources */,
 				0649AB2416E9200D001323D2 /* DFUAppDelegate.m in Sources */,
 				0649AB2D16E9200D001323D2 /* DFUViewController.m in Sources */,
-				0649ABDB16E93103001323D2 /* AudioController.m in Sources */,
+				0649ABDB16E93103001323D2 /* AudioStreamer.m in Sources */,
 				0649ABDC16E93103001323D2 /* Utilities.m in Sources */,
 				0649ABDD16E93103001323D2 /* RTSPPlayer.m in Sources */,
 			);

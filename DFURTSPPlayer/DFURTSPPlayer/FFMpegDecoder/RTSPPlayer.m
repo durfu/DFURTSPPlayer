@@ -1,9 +1,9 @@
 #import "RTSPPlayer.h"
 #import "Utilities.h"
-#import "AudioController.h"
+#import "AudioStreamer.h"
 
 @interface RTSPPlayer ()
-@property (nonatomic, retain) AudioController *audioController;
+@property (nonatomic, retain) AudioStreamer *audioController;
 @end
 
 @interface RTSPPlayer (private)
@@ -322,7 +322,7 @@ initError:
             [_audioController release];
             _audioController = nil;
         }
-        _audioController = [[AudioController alloc] initWithStreamer:self];
+        _audioController = [[AudioStreamer alloc] initWithStreamer:self];
     } else {
         pFormatCtx->streams[audioStream]->discard = AVDISCARD_ALL;
         audioStream = -1;

@@ -1,4 +1,4 @@
-#import "AudioController.h"
+#import "AudioStreamer.h"
 #import "RTSPPlayer.h"
 
 void audioQueueOutputCallback(void *inClientData, AudioQueueRef inAQ,
@@ -9,23 +9,23 @@ void audioQueueIsRunningCallback(void *inClientData, AudioQueueRef inAQ,
 void audioQueueOutputCallback(void *inClientData, AudioQueueRef inAQ,
   AudioQueueBufferRef inBuffer) {
 
-    AudioController *audioController = (AudioController*)inClientData;
+    AudioStreamer *audioController = (AudioStreamer*)inClientData;
     [audioController audioQueueOutputCallback:inAQ inBuffer:inBuffer];
 }
 
 void audioQueueIsRunningCallback(void *inClientData, AudioQueueRef inAQ,
   AudioQueuePropertyID inID) {
 
-    AudioController *audioController = (AudioController*)inClientData;
+    AudioStreamer *audioController = (AudioStreamer*)inClientData;
     [audioController audioQueueIsRunningCallback];
 }
 
-@interface AudioController ()
+@interface AudioStreamer ()
 @property (nonatomic, assign) RTSPPlayer *streamer;
 @property (nonatomic, assign) AVCodecContext *audioCodecContext;
 @end
 
-@implementation AudioController
+@implementation AudioStreamer
 
 @synthesize streamer = _streamer;
 @synthesize audioCodecContext = _audioCodecContext;
