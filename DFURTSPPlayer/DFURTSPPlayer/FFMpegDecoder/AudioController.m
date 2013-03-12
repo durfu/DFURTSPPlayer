@@ -120,8 +120,13 @@ void audioQueueIsRunningCallback(void *inClientData, AudioQueueRef inAQ,
         case CODEC_ID_AAC:
         {
             audioStreamBasicDesc_.mFormatID = kAudioFormatMPEG4AAC;
-            audioStreamBasicDesc_.mFormatFlags = kMPEG4Object_AAC_Main;
-            NSLog(@"audio format %s (%d) is  supported",  _audioCodecContext->codec_name, _audioCodecContext->codec_id);
+            audioStreamBasicDesc_.mFormatFlags = kMPEG4Object_AAC_LC;
+            audioStreamBasicDesc_.mSampleRate = 44100;
+            audioStreamBasicDesc_.mChannelsPerFrame = 2;
+            audioStreamBasicDesc_.mBitsPerChannel = 0;
+            audioStreamBasicDesc_.mFramesPerPacket = 1024;
+            audioStreamBasicDesc_.mBytesPerPacket = 0;
+            NSLog(@"audio format %s (%d) is  supported",  _audioCodecContext->codec_descriptor->name, _audioCodecContext->codec_id);
             
             break;
         }
@@ -145,19 +150,19 @@ void audioQueueIsRunningCallback(void *inClientData, AudioQueueRef inAQ,
         }
         default:
         {
-            NSLog(@"Error: audio format '%s' (%d) is not supported", _audioCodecContext->codec_name, _audioCodecContext->codec_id);
+            NSLog(@"Error: audio format '%s' (%d) is not supported", _audioCodecContext->codec_descriptor->name, _audioCodecContext->codec_id);
             audioStreamBasicDesc_.mFormatID = kAudioFormatAC3;
             break;
         }
     }
     
-    if (audioStreamBasicDesc_.mFormatID != kAudioFormatULaw) {
-        audioStreamBasicDesc_.mBytesPerPacket = 0;
-        audioStreamBasicDesc_.mFramesPerPacket = _audioCodecContext->frame_size;
-        audioStreamBasicDesc_.mBytesPerFrame = 0;
-        audioStreamBasicDesc_.mChannelsPerFrame = _audioCodecContext->channels;
-        audioStreamBasicDesc_.mBitsPerChannel = 0;        
-    }
+//    if (audioStreamBasicDesc_.mFormatID != kAudioFormatULaw) {
+//        audioStreamBasicDesc_.mBytesPerPacket = 0;
+//        audioStreamBasicDesc_.mFramesPerPacket = _audioCodecContext->frame_size;
+//        audioStreamBasicDesc_.mBytesPerFrame = 0;
+//        audioStreamBasicDesc_.mChannelsPerFrame = _audioCodecContext->channels;
+//        audioStreamBasicDesc_.mBitsPerChannel = 0;        
+//    }
     
     OSStatus status = AudioQueueNewOutput(&audioStreamBasicDesc_, audioQueueOutputCallback, (void*)self, NULL, NULL, 0, &audioQueue_);
     if (status != noErr) {
