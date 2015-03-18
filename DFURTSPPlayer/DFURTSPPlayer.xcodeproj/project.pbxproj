@@ -24,14 +24,6 @@
 		0649AB5516E92055001323D2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0649AB5216E92055001323D2 /* Default-568h@2x.png */; };
 		0649AB5616E92055001323D2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0649AB5316E92055001323D2 /* Default.png */; };
 		0649AB5716E92055001323D2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0649AB5416E92055001323D2 /* Default@2x.png */; };
-		0649ABB716E928BA001323D2 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABAF16E928BA001323D2 /* libavcodec.a */; };
-		0649ABB816E928BA001323D2 /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABB016E928BA001323D2 /* libavdevice.a */; };
-		0649ABB916E928BA001323D2 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABB116E928BA001323D2 /* libavfilter.a */; };
-		0649ABBA16E928BA001323D2 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABB216E928BA001323D2 /* libavformat.a */; };
-		0649ABBB16E928BA001323D2 /* libavresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABB316E928BA001323D2 /* libavresample.a */; };
-		0649ABBC16E928BA001323D2 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABB416E928BA001323D2 /* libavutil.a */; };
-		0649ABBD16E928BA001323D2 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABB516E928BA001323D2 /* libswresample.a */; };
-		0649ABBE16E928BA001323D2 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABB616E928BA001323D2 /* libswscale.a */; };
 		0649ABC016E928DF001323D2 /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABBF16E928DF001323D2 /* libbz2.dylib */; };
 		0649ABC216E928E6001323D2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABC116E928E6001323D2 /* libz.dylib */; };
 		0649ABC816E92C9F001323D2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABC716E92C9F001323D2 /* AVFoundation.framework */; };
@@ -44,6 +36,14 @@
 		0649ABDD16E93103001323D2 /* RTSPPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0649ABDA16E93103001323D2 /* RTSPPlayer.m */; };
 		0649ABDF16E93112001323D2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABDE16E93112001323D2 /* AudioToolbox.framework */; };
 		0649ABE116E93227001323D2 /* sophie.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0649ABE016E93227001323D2 /* sophie.mov */; };
+		75601E3E1AB9FC3400C57B81 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABAF16E928BA001323D2 /* libavcodec.a */; };
+		75601E3F1AB9FC3400C57B81 /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABB016E928BA001323D2 /* libavdevice.a */; };
+		75601E401AB9FC3400C57B81 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABB116E928BA001323D2 /* libavfilter.a */; };
+		75601E411AB9FC3400C57B81 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABB216E928BA001323D2 /* libavformat.a */; };
+		75601E421AB9FC3400C57B81 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABB416E928BA001323D2 /* libavutil.a */; };
+		75601E431AB9FC3400C57B81 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABB516E928BA001323D2 /* libswresample.a */; };
+		75601E441AB9FC3400C57B81 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0649ABB616E928BA001323D2 /* libswscale.a */; };
+		75601E461ABA00DF00C57B81 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75601E451ABA00DF00C57B81 /* libiconv.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +177,7 @@
 		0649ABDA16E93103001323D2 /* RTSPPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSPPlayer.m; sourceTree = "<group>"; };
 		0649ABDE16E93112001323D2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		0649ABE016E93227001323D2 /* sophie.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sophie.mov; sourceTree = "<group>"; };
+		75601E451ABA00DF00C57B81 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +185,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75601E461ABA00DF00C57B81 /* libiconv.dylib in Frameworks */,
+				75601E3E1AB9FC3400C57B81 /* libavcodec.a in Frameworks */,
+				75601E3F1AB9FC3400C57B81 /* libavdevice.a in Frameworks */,
+				75601E401AB9FC3400C57B81 /* libavfilter.a in Frameworks */,
+				75601E411AB9FC3400C57B81 /* libavformat.a in Frameworks */,
+				75601E421AB9FC3400C57B81 /* libavutil.a in Frameworks */,
+				75601E431AB9FC3400C57B81 /* libswresample.a in Frameworks */,
+				75601E441AB9FC3400C57B81 /* libswscale.a in Frameworks */,
 				0649ABDF16E93112001323D2 /* AudioToolbox.framework in Frameworks */,
 				0649ABD016E92CBE001323D2 /* CoreVideo.framework in Frameworks */,
 				0649ABCE16E92CB8001323D2 /* CoreImage.framework in Frameworks */,
@@ -195,14 +204,6 @@
 				0649AB1416E9200D001323D2 /* UIKit.framework in Frameworks */,
 				0649AB1616E9200D001323D2 /* Foundation.framework in Frameworks */,
 				0649AB1816E9200D001323D2 /* CoreGraphics.framework in Frameworks */,
-				0649ABB716E928BA001323D2 /* libavcodec.a in Frameworks */,
-				0649ABB816E928BA001323D2 /* libavdevice.a in Frameworks */,
-				0649ABB916E928BA001323D2 /* libavfilter.a in Frameworks */,
-				0649ABBA16E928BA001323D2 /* libavformat.a in Frameworks */,
-				0649ABBB16E928BA001323D2 /* libavresample.a in Frameworks */,
-				0649ABBC16E928BA001323D2 /* libavutil.a in Frameworks */,
-				0649ABBD16E928BA001323D2 /* libswresample.a in Frameworks */,
-				0649ABBE16E928BA001323D2 /* libswscale.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +242,7 @@
 		0649AB1216E9200D001323D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				75601E451ABA00DF00C57B81 /* libiconv.dylib */,
 				0649ABC116E928E6001323D2 /* libz.dylib */,
 				0649ABBF16E928DF001323D2 /* libbz2.dylib */,
 				0649ABDE16E93112001323D2 /* AudioToolbox.framework */,
@@ -542,7 +544,7 @@
 			name = DFURTSPPlayerTests;
 			productName = DFURTSPPlayerTests;
 			productReference = 0649AB3916E9200D001323D2 /* DFURTSPPlayerTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -707,7 +709,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -731,7 +733,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -742,19 +744,25 @@
 		0649AB4C16E9200D001323D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DFURTSPPlayer/DFURTSPPlayer-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/FFMpegiOS/include/**";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/FFMpegiOS/include/**",
+					"$(PROJECT_DIR)/DFURTSPPlayer/FFMpegiOS/include",
+				);
 				INFOPLIST_FILE = "DFURTSPPlayer/DFURTSPPlayer-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/DFURTSPPlayer/FFMpegiOS/lib\"",
+					"$(PROJECT_DIR)/DFURTSPPlayer/FFMpegiOS/lib",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-Objc",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -762,19 +770,25 @@
 		0649AB4D16E9200D001323D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DFURTSPPlayer/DFURTSPPlayer-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/FFMpegiOS/include/**";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/FFMpegiOS/include/**",
+					"$(PROJECT_DIR)/DFURTSPPlayer/FFMpegiOS/include",
+				);
 				INFOPLIST_FILE = "DFURTSPPlayer/DFURTSPPlayer-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/DFURTSPPlayer/FFMpegiOS/lib\"",
+					"$(PROJECT_DIR)/DFURTSPPlayer/FFMpegiOS/lib",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-Objc",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
