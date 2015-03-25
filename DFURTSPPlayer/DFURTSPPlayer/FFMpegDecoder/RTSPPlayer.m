@@ -2,6 +2,10 @@
 #import "Utilities.h"
 #import "AudioStreamer.h"
 
+#ifndef AVCODEC_MAX_AUDIO_FRAME_SIZE
+# define AVCODEC_MAX_AUDIO_FRAME_SIZE 192000 // 1 second of 48khz 32bit audio
+#endif
+
 @interface RTSPPlayer ()
 @property (nonatomic, retain) AudioStreamer *audioController;
 @end

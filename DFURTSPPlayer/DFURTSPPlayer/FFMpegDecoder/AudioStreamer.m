@@ -9,14 +9,14 @@ void audioQueueIsRunningCallback(void *inClientData, AudioQueueRef inAQ,
 void audioQueueOutputCallback(void *inClientData, AudioQueueRef inAQ,
   AudioQueueBufferRef inBuffer) {
 
-    AudioStreamer *audioController = (AudioStreamer*)inClientData;
+    AudioStreamer *audioController = (__bridge AudioStreamer*)inClientData;
     [audioController audioQueueOutputCallback:inAQ inBuffer:inBuffer];
 }
 
 void audioQueueIsRunningCallback(void *inClientData, AudioQueueRef inAQ,
   AudioQueuePropertyID inID) {
 
-    AudioStreamer *audioController = (AudioStreamer*)inClientData;
+    AudioStreamer *audioController = (__bridge AudioStreamer*)inClientData;
     [audioController audioQueueIsRunningCallback];
 }
 
@@ -41,11 +41,6 @@ void audioQueueIsRunningCallback(void *inClientData, AudioQueueRef inAQ,
     return  self;
 }
 
-- (void)dealloc
-{
-    [self removeAudioQueue];
-    [super dealloc];
-}
 
 - (IBAction)playAudio:(UIButton*)sender
 {
@@ -96,7 +91,6 @@ void audioQueueIsRunningCallback(void *inClientData, AudioQueueRef inAQ,
 
     if (decodeLock_) {
         [decodeLock_ unlock];
-        [decodeLock_ release];
         decodeLock_ = nil;
     }
     
@@ -121,11 +115,13 @@ void audioQueueIsRunningCallback(void *inClientData, AudioQueueRef inAQ,
         {
             audioStreamBasicDesc_.mFormatID = kAudioFormatMPEG4AAC;
             audioStreamBasicDesc_.mFormatFlags = kMPEG4Object_AAC_LC;
-            audioStreamBasicDesc_.mSampleRate = 44100;
-            audioStreamBasicDesc_.mChannelsPerFrame = 2;
+            audioStreamBasicDesc_.mSampleRate = _audioCodecContext->sample_rate;
+            audioStreamBasicDesc_.mChannelsPerFrame = _audioCodecContext->channels;
             audioStreamBasicDesc_.mBitsPerChannel = 0;
-            audioStreamBasicDesc_.mFramesPerPacket = 1024;
+            audioStreamBasicDesc_.mFramesPerPacket =_audioCodecContext->frame_size;
             audioStreamBasicDesc_.mBytesPerPacket = 0;
+            audioStreamBasicDesc_.mBytesPerFrame = _audioCodecContext->frame_bits;
+            audioStreamBasicDesc_.mReserved = 0;
             NSLog(@"audio format %s (%d) is  supported",  _audioCodecContext->codec_descriptor->name, _audioCodecContext->codec_id);
             
             break;
@@ -164,13 +160,13 @@ void audioQueueIsRunningCallback(void *inClientData, AudioQueueRef inAQ,
 //        audioStreamBasicDesc_.mBitsPerChannel = 0;        
 //    }
     
-    OSStatus status = AudioQueueNewOutput(&audioStreamBasicDesc_, audioQueueOutputCallback, (void*)self, NULL, NULL, 0, &audioQueue_);
+    OSStatus status = AudioQueueNewOutput(&audioStreamBasicDesc_, audioQueueOutputCallback, (__bridge void*)self, NULL, NULL, 0, &audioQueue_);
     if (status != noErr) {
       NSLog(@"Could not create new output.");
       return NO;
     }
 
-    status = AudioQueueAddPropertyListener(audioQueue_, kAudioQueueProperty_IsRunning, audioQueueIsRunningCallback, (void*)self);
+    status = AudioQueueAddPropertyListener(audioQueue_, kAudioQueueProperty_IsRunning, audioQueueIsRunningCallback, (__bridge void*)self);
     if (status != noErr) {
       NSLog(@"Could not add propery listener. (kAudioQueueProperty_IsRunning)");
       return NO;
@@ -203,7 +199,6 @@ void audioQueueIsRunningCallback(void *inClientData, AudioQueueRef inAQ,
     
     if (decodeLock_) {
         [decodeLock_ unlock];
-        [decodeLock_ release];
         decodeLock_ = nil;
     }
 }
