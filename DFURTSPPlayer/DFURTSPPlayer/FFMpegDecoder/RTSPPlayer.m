@@ -140,7 +140,7 @@
     }
 	
     // Allocate video frame
-    pFrame = avcodec_alloc_frame();
+    pFrame = av_frame_alloc();
 			
 	outputWidth = pCodecCtx->width;
 	self.outputHeight = pCodecCtx->height;
@@ -171,7 +171,6 @@ initError:
 									 outputHeight,
 									 PIX_FMT_RGB24,
 									 sws_flags, NULL, NULL, NULL);
-	
 }
 
 - (void)seekTime:(double)seconds
@@ -252,13 +251,15 @@ initError:
 
 - (void)convertFrameToRGB
 {
-	sws_scale(img_convert_ctx,
-              pFrame->data,
-              pFrame->linesize,
-              0,
-              pCodecCtx->height,
-              picture.data,
-              picture.linesize);
+    if(img_convert_ctx != NULL){
+        sws_scale(img_convert_ctx,
+                  (const uint8_t *const *)pFrame->data,
+                  pFrame->linesize,
+                  0,
+                  pCodecCtx->height,
+                  picture.data,
+                  picture.linesize);
+    }
 }
 
 - (UIImage *)imageFromAVPicture:(AVPicture)pict width:(int)width height:(int)height
