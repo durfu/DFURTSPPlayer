@@ -246,7 +246,7 @@ initError:
             }
         }
 	}
-    
+	av_free_packet (&packet);
 	return frameFinished!=0;
 }
 
